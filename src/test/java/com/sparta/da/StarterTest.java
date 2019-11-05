@@ -4,7 +4,6 @@ import com.sparta.da.EmployeeModel.CSVReader;
 import com.sparta.da.EmployeeModel.DAO;
 import com.sparta.da.EmployeeModel.Employee;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -30,15 +29,34 @@ public class StarterTest {
     public void TestAddEmployee() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         Employee employee = new Employee("1", "Mr.", "David", "Paul", "Asare", "Male", "david@gmail.com", LocalDate.parse("4/28/1994", dateTimeFormatter), LocalDate.parse("10/28/2019", dateTimeFormatter), 100000);
-        dao.InsertEachSQLQuery(employee);
+        dao.insertEachSQLQuery(employee);
     }
 
 
     @Test
     public void TestAddEmployeeWithCSVFile(){
         Map<String, Employee> list = csvReader.FileReader();
-        dao.InsertHashMapSQLQuery(list);
+        dao.insertHashMapSQLQuery(list);
     }
+//    @Test
+//    public void TestAddEmployeeWithCSVFileWithLambda(){
+//        Map<String, Employee> list = csvReader.FileReaderWithLambda();
+//        dao.InsertHashMapSQLQuery(list);
+//    }
+
+/*    @Test
+    public void TestWithCSVFileWithDuplicates(){
+        Map<String, Employee> list = csvReader.FileReader();
+        for (Employee element: list.values()) {
+
+        }
+    }*/
+//    @Test
+//    public void TestUsingThreads() throws Exception{
+//        ExecutorService executorService = null;
+//        executorService.submit(() ->);
+//
+//    }
 
     @Test
     public void TestSizeOfEmployeeFile(){

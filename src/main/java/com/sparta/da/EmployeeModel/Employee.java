@@ -1,7 +1,10 @@
 package com.sparta.da.EmployeeModel;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
 import java.time.LocalDate;
-
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Employee {
     private String employeeID;
@@ -122,6 +125,12 @@ public class Employee {
                 ", dateJoin=" + dateJoin +
                 ", salary=" + salary +
                 '}';
+    }
+
+    private LocalDate formatDate(String str){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        LocalDate localDate = LocalDate.parse(str, dateTimeFormatter);
+        return localDate;
     }
 }
 
