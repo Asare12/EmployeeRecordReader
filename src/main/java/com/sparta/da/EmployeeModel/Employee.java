@@ -127,10 +127,5 @@ public class Employee {
                 '}';
     }
 
-    private LocalDate formatDate(String str){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        LocalDate localDate = LocalDate.parse(str, dateTimeFormatter);
-        return localDate;
-    }
 }
 

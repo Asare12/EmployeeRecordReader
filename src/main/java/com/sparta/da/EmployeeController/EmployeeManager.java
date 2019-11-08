@@ -16,7 +16,7 @@ public class EmployeeManager {
     public void insertIntoDB(){
 
         Map<String, Employee> employeeMap = csvReader.FileReader();
-        dao.insertHashMapSQLQuery(employeeMap);
+        dao.insertHashMapWithThreadsSQLQuery(employeeMap);
     }
     public void truncateDB(){
         dao.truncateData();
@@ -24,7 +24,7 @@ public class EmployeeManager {
 
 
     public void printList(){
-        Map<String, Employee> list = csvReader.FileReader();
+        Map<String, Employee> list = csvReader.FileReaderWithLambda();
         list.forEach((s, employee) -> System.out.println(employee));
     }
 

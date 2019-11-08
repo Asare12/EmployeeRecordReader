@@ -18,11 +18,14 @@ import static org.junit.Assert.*;
 public class StarterTest {
     private DAO dao;
     private CSVReader csvReader;
+    private Employee employee;
 
     @Before
     public void setup() {
         dao = new DAO();
         csvReader = new CSVReader();
+
+
     }
 
     @Test
@@ -38,19 +41,18 @@ public class StarterTest {
         Map<String, Employee> list = csvReader.FileReader();
         dao.insertHashMapSQLQuery(list);
     }
+    @Test
+    public void TestAddEmployeeWithCSVFileWithLambda(){
+        Map<String, Employee> list = csvReader.FileReaderWithLambda();
+        dao.insertHashMapWithThreadsSQLQuery(list);
+    }
+
 //    @Test
-//    public void TestAddEmployeeWithCSVFileWithLambda(){
-//        Map<String, Employee> list = csvReader.FileReaderWithLambda();
-//        dao.InsertHashMapSQLQuery(list);
+//    public void TestWithCSVFileWithDuplicates(){
+//        Map<String, Employee> list = csvReader.FileReader();
+//        if (list.containsKey(list.))
 //    }
 
-/*    @Test
-    public void TestWithCSVFileWithDuplicates(){
-        Map<String, Employee> list = csvReader.FileReader();
-        for (Employee element: list.values()) {
-
-        }
-    }*/
 //    @Test
 //    public void TestUsingThreads() throws Exception{
 //        ExecutorService executorService = null;

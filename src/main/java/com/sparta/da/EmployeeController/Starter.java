@@ -19,5 +19,7 @@ public class Starter
         new EmployeeManager().truncateDB();
 
         new EmployeeManager().insertIntoDB();
+
+        new EmployeeManager().printList();
     }
 }
